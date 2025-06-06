@@ -1,8 +1,7 @@
-// components/IndoorNavigationScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import BottomNavBar from './BottomNavBar'; // Assuming you want the nav bar here as well
+import BottomNavBar from './BottomNavBar';
 
 const IndoorNavigationScreen = ({ startingLocation, endingLocation, onNavigateToSearch }) => {
   return (
@@ -40,9 +39,6 @@ const IndoorNavigationScreen = ({ startingLocation, endingLocation, onNavigateTo
           </View>
         </View>
       </View>
-      
-      {/* You can decide if the BottomNavBar should be here or hidden on this screen */}
-      {/* <BottomNavBar activeScreen="search" /> */}
     </View>
   );
 };
@@ -50,7 +46,7 @@ const IndoorNavigationScreen = ({ startingLocation, endingLocation, onNavigateTo
 const styles = StyleSheet.create({
   container: { flex: 1 },
   backgroundImage: { flex: 1, justifyContent: 'space-between' },
-  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.1)' }, // Slight dark overlay for text visibility
+  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.1)' }, 
   searchBarContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 12,
     marginHorizontal: 15,
-    marginTop: 50, // Adjust for status bar
+    marginTop: 50, 
     elevation: 4,
   },
   searchInputPlaceholder: { flex: 1, fontSize: 16, color: '#888' },
@@ -68,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 150, // Offset to push it up a bit
+    paddingBottom: 150, 
   },
   distanceText: {
     fontSize: 48,
