@@ -1,9 +1,7 @@
-// components/SearchBar.js
 import React from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// MODIFICATION: Added value, onChangeText, editable props
 const SearchBar = ({ placeholder, style, onFilterPress, value, onChangeText, editable }) => {
   return (
     <View style={[styles.searchBarContainer, style]}>
@@ -13,7 +11,6 @@ const SearchBar = ({ placeholder, style, onFilterPress, value, onChangeText, edi
         resizeMode="contain"
       />
 
-      {/* MODIFICATION: TextInput is now fully controlled */}
       <TextInput
         style={styles.searchInput}
         placeholder={placeholder || "Search here"}
