@@ -1,4 +1,3 @@
-// components/MapScreen.js
 import React, { useState, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform, FlatList } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
@@ -8,20 +7,18 @@ import BottomNavBar from './BottomNavBar';
 
 const jhRooms = [];
 for (let i = 1; i <= 37; i++) {
-  // MODIFICATION: Added category to jhRooms
   jhRooms.push({ id: `jh${i}`, name: `JH ${i}`, category: 'Rooms' });
 }
 
 const locations = [
-  { id: 'unc', title: 'University of Nueva Caceres', coords: { latitude: 13.625061876399252, longitude: 123.18268645544201 }, iconType: 'school', color: '#4CAF50', category: 'Building' }, // MODIFICATION: Added category
-  { id: 'new', title: 'New Building', coords: { latitude: 13.624293303076922, longitude: 123.18242258718435 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, // MODIFICATION: Added category
-  { id: 'jh', title: 'JH Building', coords: { latitude: 13.62554569647968, longitude: 123.18219399760679 }, iconType: 'location-pin', color: '#F44336', rooms: jhRooms, category: 'Building' }, // MODIFICATION: Added category
-  { id: 'ams', title: 'AMS Building', coords: { latitude: 13.62526344250962, longitude: 123.18347069626839 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, // MODIFICATION: Added category
-  { id: 'en', title: 'EN Building', coords: { latitude: 13.624632416827735, longitude: 123.18147455725087 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, // MODIFICATION: Added category
-  { id: 'dhs', title: 'DHS Building', coords: { latitude: 13.624235542676756, longitude: 123.18343412111322 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, // MODIFICATION: Added category
+  { id: 'unc', title: 'University of Nueva Caceres', coords: { latitude: 13.625061876399252, longitude: 123.18268645544201 }, iconType: 'school', color: '#4CAF50', category: 'Building' }, 
+  { id: 'new', title: 'New Building', coords: { latitude: 13.624293303076922, longitude: 123.18242258718435 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, 
+  { id: 'jh', title: 'JH Building', coords: { latitude: 13.62554569647968, longitude: 123.18219399760679 }, iconType: 'location-pin', color: '#F44336', rooms: jhRooms, category: 'Building' }, 
+  { id: 'ams', title: 'AMS Building', coords: { latitude: 13.62526344250962, longitude: 123.18347069626839 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, 
+  { id: 'en', title: 'EN Building', coords: { latitude: 13.624632416827735, longitude: 123.18147455725087 }, iconType: 'location-pin', color: '#F44336', category: 'Building' }, 
+  { id: 'dhs', title: 'DHS Building', coords: { latitude: 13.624235542676756, longitude: 123.18343412111322 }, iconType: 'location-pin', color: '#F44336', category: 'Building' },
 ];
 
-// MODIFICATION: Added onNavigateToBookmarks to props
 const MapScreen = ({ currentActiveScreen, onNavigateToSearch, onNavigateToBookmarks, onNavigateToNotifications  }) => {
   const mapRef = useRef(null);
   const [buildingQuery, setBuildingQuery] = useState('');
@@ -139,7 +136,6 @@ const MapScreen = ({ currentActiveScreen, onNavigateToSearch, onNavigateToBookma
          </View>
       )}
 
-      {/* MODIFICATION: Pass the new onNavigateToBookmarks prop */}
       <BottomNavBar
         activeScreen={currentActiveScreen}
         onCompassPress={onNavigateToSearch}
