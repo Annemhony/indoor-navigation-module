@@ -1,11 +1,8 @@
-// components/SavedScreen.js
 import React, { useState, useMemo } from 'react';
-// MODIFICATION: Import 'Alert'
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
 import BottomNavBar from './BottomNavBar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// --- MASTER DATA SOURCE ---
 const jhRooms = Array.from({ length: 37 }, (_, i) => {
   const roomNumber = i + 1;
   let floor = 'General';
@@ -27,8 +24,6 @@ const ALL_LOCATIONS = {
 const ALL_ITEMS_ARRAY = Object.values(ALL_LOCATIONS).flatMap(item => item.rooms ? [item, ...item.rooms] : [item]);
 
 
-// --- COMPONENTS ---
-// MODIFICATION: Changed prop name to 'onUnbookmarkPress' for clarity
 const SavedItemCard = ({ item, onUnbookmarkPress }) => {
   return (
     <View style={styles.cardContainer}>
@@ -37,7 +32,6 @@ const SavedItemCard = ({ item, onUnbookmarkPress }) => {
         <Text style={styles.cardTitle}>{item.title || item.name}</Text>
         <Text style={styles.cardDescription} numberOfLines={2}>{item.description}</Text>
       </View>
-      {/* MODIFICATION: The onPress handler uses the new prop name */}
       <TouchableOpacity onPress={onUnbookmarkPress}>
         <Icon name={"bookmark"} size={24} color={"#D32F2F"} />
       </TouchableOpacity>
@@ -88,7 +82,6 @@ const SavedScreen = ({ currentActiveScreen, onNavigateToMap, onNavigateToBookmar
     setShowFloorFilter(false);
   };
   
-  // MODIFICATION: Added this function to show the confirmation alert
   const handleUnbookmarkConfirm = (item) => {
     Alert.alert(
       "Remove Saved Location",
@@ -137,7 +130,7 @@ const SavedScreen = ({ currentActiveScreen, onNavigateToMap, onNavigateToBookmar
             <SavedItemCard
               key={item.id}
               item={item}
-              // MODIFICATION: Pass the new confirmation handler to the card
+              //Pass the new confirmation handler to the card
               onUnbookmarkPress={() => handleUnbookmarkConfirm(item)}
             />
           ))
@@ -158,7 +151,6 @@ const SavedScreen = ({ currentActiveScreen, onNavigateToMap, onNavigateToBookmar
   );
 };
 
-// Paste your full styles object here
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F4F6F8' },
   headerSection: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, paddingTop: 45, paddingBottom: 10, backgroundColor: '#FFF' },
