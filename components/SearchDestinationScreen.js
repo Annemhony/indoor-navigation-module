@@ -1,4 +1,3 @@
-// components/SearchDestinationScreen.js
 import React, { useState } from 'react'; 
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Platform } from 'react-native';
 import MapView from 'react-native-maps';
@@ -23,9 +22,7 @@ const placesToVisit = [
   },
 ];
 
-// MODIFICATION: Added 'onNavigateToIndoor' prop to accept the navigation function
 const SearchDestinationScreen = ({ currentActiveScreen, onNavigateToMap, onNavigateToBookmarks, onNavigateToNotifications, bookmarkedItemIds, onToggleBookmark, onNavigateToIndoor }) => {
-  // MODIFICATION: Added state to manage the text inputs
   const [startLocation, setStartLocation] = useState('');
   const [endLocation, setEndLocation] = useState('');
 
@@ -41,7 +38,6 @@ const SearchDestinationScreen = ({ currentActiveScreen, onNavigateToMap, onNavig
           <TouchableOpacity><View style={styles.avatarPlaceholder}><Icon name="account" size={18} color="#666" /></View></TouchableOpacity>
         </View>
         <View style={styles.locationInputsContainer}>
-          {/* MODIFICATION: Connected TextInput to state */}
           <View style={styles.inputRow}>
             <View style={styles.startDot} />
             <TextInput 
@@ -53,7 +49,6 @@ const SearchDestinationScreen = ({ currentActiveScreen, onNavigateToMap, onNavig
             />
           </View>
           <View style={styles.separatorLine} />
-          {/* MODIFICATION: Connected TextInput to state */}
           <View style={styles.inputRow}>
             <View style={styles.endDot} />
             <TextInput 
@@ -72,7 +67,6 @@ const SearchDestinationScreen = ({ currentActiveScreen, onNavigateToMap, onNavig
         <MapView style={styles.smallMap} initialRegion={{ latitude: 13.6237, longitude: 123.1843, latitudeDelta: 0.015, longitudeDelta: 0.015 }} scrollEnabled={false} zoomEnabled={false} pitchEnabled={false} rotateEnabled={false} customMapStyle={Platform.OS === 'android' ? mapStyle : undefined} />
         <View style={styles.timeAndStartContainer}>
           <Text style={styles.estimatedTime}>Estimated Time: 5mins</Text>
-          {/* MODIFICATION: Added onPress handler to the button */}
           <TouchableOpacity 
             style={styles.startButton}
             onPress={() => onNavigateToIndoor(startLocation, endLocation)}
