@@ -1,9 +1,7 @@
-// components/PlaceCard.js
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// MODIFICATION: Added isBookmarked and onBookmarkPress to props
 const PlaceCard = ({ imageSource, title, description, isBookmarked, onBookmarkPress }) => {
   return (
     <View style={styles.cardContainer}>
@@ -16,7 +14,7 @@ const PlaceCard = ({ imageSource, title, description, isBookmarked, onBookmarkPr
             {description}
           </Text>
         </View>
-        {/* MODIFICATION: Dynamic icon based on isBookmarked and onPress handler */}
+
         <TouchableOpacity style={styles.bookmarkButton} onPress={onBookmarkPress}>
           <Icon
             name={isBookmarked ? "bookmark" : "bookmark-outline"} // Changes icon based on state
