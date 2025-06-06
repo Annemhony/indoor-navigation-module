@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, StatusBar, Platform, Alert } from 'react-native';
 import MapScreen from './components/MapScreen';
