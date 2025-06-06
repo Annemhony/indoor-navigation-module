@@ -10,12 +10,12 @@ import IndoorNavigationScreen from './components/IndoorNavigationScreen'; // MOD
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('map');
   const [bookmarkedItemIds, setBookmarkedItemIds] = useState(new Set());
-  // MODIFICATION: New state to hold data for the indoor route
+  //New state to hold data for the indoor route
   const [indoorRoute, setIndoorRoute] = useState({ start: '', end: '' });
 
   const navigateTo = (screenName) => setCurrentScreen(screenName);
 
-  // MODIFICATION: New function to handle navigating to the indoor screen
+  //New function to handle navigating to the indoor screen
   const navigateToIndoor = (startLocation, endLocation) => {
     setIndoorRoute({ start: startLocation, end: endLocation });
     setCurrentScreen('indoor');
@@ -70,7 +70,7 @@ export default function App() {
             onNavigateToNotifications={() => navigateTo('notifications')}
           />
         );
-      // MODIFICATION: Add case for the new indoor navigation screen
+      // Add case for the new indoor navigation screen
       case 'indoor':
         return (
           <IndoorNavigationScreen
